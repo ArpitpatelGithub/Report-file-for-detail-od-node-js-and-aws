@@ -1,0 +1,75 @@
+1) Create NodeJs api 
+   by which we can insert data into PostGreSQL and other operation also 
+
+.  We create to index file first for test on local server and second one is for deployment in     aws 
+.  We create Lambda function in AWS and create Zip file for our nodeJS code and upload Zip in     aws 
+.  Then we Test our index file for all operation that it work or not in aws 
+
+   EVENT JSON
+	{
+          "route": "fetch",
+          "query": {
+             "limit": 1,
+             "offset": 0,
+             "sortBy": "id",
+             "sortOrder": "desc"
+            }
+         }
+
+	 {
+           "route": "insert"
+         }
+
+          {
+            "route": "deleteUser/{id}",
+            "id": "$input.params('id')"
+           }
+
+
+          {
+            "route": "updateUser/{id}",
+            "id": "$input.params('id')"
+           }
+
+
+	
+
+.  Some Steps we must do in aws for test or run the code 
+   some permitions are also given to lambda function
+
+   go to configuration / vpc
+
+   1) VPC
+    . vpc-3fed8b54 (172.31.0.0/16) | Default
+
+   2) Subnets
+
+   . Allow IPv6 traffic = false
+   . subnet-0df25a0fdbf7c972d (172.31.112.0/20) | us-east-2b, private-subnet-lambda
+
+   3) Security groups
+      .sg-0f2084e86baad56ac (solved-rds-prod)
+
+
+   * in search bar search IAM then go to Roles like then search which permistion requried 
+     which is show when test in aws
+
+  * for checking logs in aws 
+
+	
+
+
+ 
+2) Now We Create Api endpoint which is availabe in api getWay
+. then we go to api getway 
+  we select which type of api we want to create like (get, post, delete, update )
+  then we also provide application/json in 
+. now we use that api in any where like we can use it in postmen 
+
+
+
+3) Now we can insert that data which is available in postgres into Salesforce 
+.  by using api endpoint we can fetch postgres data into apex code and insert into salesforce    databse with the help of batch class 
+
+
+
